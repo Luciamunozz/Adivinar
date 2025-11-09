@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --bg1: #1a1a40;
+  --bg2: #4a148c;
+  --card: rgba(255, 255, 255, 0.08);
+  --accent: #ff4081;
+  --accent-hover: #ff79a8;
+  --text-highlight: #ffd54f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+/* Contenedor principal */
+.container {
+  width: 100%;
+  max-width: 720px;
+  background: var(--card);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  animation: fadeIn 0.45s ease;
+}
+
+/* Elementos en fila */
+.fila {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.fila-botones {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+/* Inputs y selects */
+input[type="text"],
+input[type="number"],
+select {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  width: 100%;
+  max-width: 260px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+/* Botones */
+button {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: transform 0.14s ease, background 0.14s ease;
+  width: 100%;
+  max-width: 240px;
+}
+
+button:hover,
+button:active {
+  transform: scale(1.04);
+  background: var(--accent-hover);
+}
+
+#vidas {
+  font-size: 22px;
+  margin-top: 8px;
+}
+#resultado {
+  margin-top: 16px;
+  font-weight: 600;
+  color: var(--text-highlight);
+  min-height: 34px;
+}
+
+.oculto {
+  display: none !important;
+}
+
+/* ==== Modales ==== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.modal[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-contenido {
+  background: #2e0854;
+  padding: 24px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.cerrar {
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Modal estilos especiales */
+#modal-ganar .modal-contenido h2 {
+  color: #ffd54f;
+  font-size: 26px;
+  font-weight: 600;
+}
+#modal-perder .modal-contenido h2 {
+  color: #ff8080;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+/* ==== Responsivo ==== */
+@media (max-width: 520px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 18px;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  select,
+  button {
+    font-size: 15px;
+    width: 100%;
+  }
+
+  h1, h2 {
+    font-size: 1.4rem;
+  }
+
+  #vidas {
+    font-size: 20px;
+  }
+
+  #resultado {
+    font-size: 15px;
+  }
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
