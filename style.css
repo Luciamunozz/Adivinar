@@ -17,11 +17,13 @@ html, body {
   height: 100%;
   margin: 0;
   font-family: 'Poppins', sans-serif;
+
+  /* FONDO ARREGLADO */
   background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  background-size: cover;
+  background-attachment: fixed;
+
   color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 16px;
 }
 
@@ -34,7 +36,11 @@ html, body {
   border-radius: 16px;
   box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
   text-align: center;
+  margin: 0 auto; /* Para centrar horizontal */
   animation: fadeIn 0.45s ease;
+
+  /* Para centrar vertical */
+  margin-top: 40px;
 }
 
 /* Elementos en fila */
@@ -42,10 +48,11 @@ html, body {
   display: flex;
   gap: 10px;
   align-items: center;
-  justify-content: center;
+  justify-content: center%;
   flex-wrap: wrap;
   margin-top: 10px;
 }
+
 .fila-botones {
   display: flex;
   gap: 12px;
@@ -168,6 +175,7 @@ button:active {
 
   .container {
     padding: 18px;
+    margin-top: 20px;
   }
 
   input[type="text"],
