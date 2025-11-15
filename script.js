@@ -842,11 +842,18 @@ btnAdivinar.addEventListener("click", () => {
 
   // GRUPO
   if (["grupo","band","bandname"].includes(tipo)) {
+
+    // si la canción no es de grupo
+    if (!cancionSeleccionada.grupo) {
+      resultado.textContent = "❌ Esta canción no es de un grupo, es de un cantante.";
+      return;
+    }
+
     const intentoRaw = prompt("¿Cuál es el grupo?");
     if (!intentoRaw) return;
 
     const intento = norm(intentoRaw);
-    const correcto = cancionSeleccionada.grupo ? norm(cancionSeleccionada.grupo_nombre || "") : "";
+    const correcto = norm(cancionSeleccionada.grupo_nombre || "");
 
     if (intento === correcto) {
       resultado.textContent = `✔️ CORRECTO! El grupo es ${cancionSeleccionada.grupo_nombre}`;
@@ -858,14 +865,21 @@ btnAdivinar.addEventListener("click", () => {
 
   // CANTANTE
   if (["cantante","vocal","singer"].includes(tipo)) {
+
+    // si la canción es de grupo
+    if (cancionSeleccionada.grupo) {
+      resultado.textContent = "❌ Esta canción es de un grupo, no tiene cantante individual.";
+      return;
+    }
+
     const intentoRaw = prompt("¿Cuál es el/la cantante?");
     if (!intentoRaw) return;
 
     const intento = norm(intentoRaw);
-    const correcto = !cancionSeleccionada.grupo ? norm(cancionSeleccionada.cantante || "") : "";
+    const correcto = norm(cancionSeleccionada.cantante || "");
 
     if (intento === correcto) {
-      resultado.textContent = `✔️CORRECTO! El album es ${cancionSeleccionada.cantante`;
+      resultado.textContent = `✔️ CORRECTO! El/la cantante es ${cancionSeleccionada.cantante}`;
     } else {
       resultado.textContent = "❌ No es ese el/la cantante.";
     }
@@ -881,7 +895,7 @@ btnAdivinar.addEventListener("click", () => {
     const correcto = norm(cancionSeleccionada.album || "");
 
     if (intento === correcto) {
-      resultado.textContent = `✔️ CORRECTO! El album es ${cancionSeleccionada.album}`;
+      resultado.textContent = `✔️ CORRECTO! El álbum es ${cancionSeleccionada.album}`;
     } else {
       resultado.textContent = "❌ Ese no es el álbum.";
     }
