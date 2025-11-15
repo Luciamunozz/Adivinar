@@ -849,9 +849,9 @@ btnAdivinar.addEventListener("click", () => {
     const correcto = cancionSeleccionada.grupo ? norm(cancionSeleccionada.grupo_nombre || "") : "";
 
     if (intento === correcto) {
-      resultado.textContent = "✔️ Acertaste el grupo, PERO SOLO SE GANA ADIVINANDO LA CANCIÓN.";
+      resultado.textContent = `✔️ CORRECTO! El grupo es ${cancionSeleccionada.grupo_nombre}`;
     } else {
-      resultado.textContent = "❌ No es ese el grupo. (No pierdes vidas)";
+      resultado.textContent = "❌ No es ese el grupo.";
     }
     return;
   }
@@ -865,9 +865,9 @@ btnAdivinar.addEventListener("click", () => {
     const correcto = !cancionSeleccionada.grupo ? norm(cancionSeleccionada.cantante || "") : "";
 
     if (intento === correcto) {
-      resultado.textContent = "✔️ Acertaste el cantante, PERO SOLO SE GANA ADIVINANDO LA CANCIÓN.";
+      resultado.textContent = `✔️CORRECTO! El album es ${cancionSeleccionada.cantante`;
     } else {
-      resultado.textContent = "❌ No es ese el/la cantante. (No pierdes vidas)";
+      resultado.textContent = "❌ No es ese el/la cantante.";
     }
     return;
   }
@@ -881,9 +881,9 @@ btnAdivinar.addEventListener("click", () => {
     const correcto = norm(cancionSeleccionada.album || "");
 
     if (intento === correcto) {
-      resultado.textContent = "✔️ Acertaste el álbum, PERO SOLO SE GANA ADIVINANDO LA CANCIÓN.";
+      resultado.textContent = `✔️ CORRECTO! El album es ${cancionSeleccionada.album}`;
     } else {
-      resultado.textContent = "❌ Ese no es el álbum. (No pierdes vidas)";
+      resultado.textContent = "❌ Ese no es el álbum.";
     }
     return;
   }
